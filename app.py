@@ -24,11 +24,11 @@ if generate:
                 img = img.resize((4500, 5400))
                 today = datetime.date.today().isoformat()
                 filename = f"{prompt.replace(' ', '_')}_{today}.png"
-                img.save(filename, dpi=(300, 300))
+                img.save(file_name, dpi=(300, 300))
 
                 st.image(img, caption=f"{prompt}")
-                with open(filename, "rb") as file:
-                    st.download_button("Pobierz grafikę", file, filename=filename)
+                with open(file_name, "rb") as file:
+                    st.download_button("Pobierz grafikę", file, file_name=file_name)
 
                 title, description, tags = generate_tags(prompt)
                 st.subheader("Tytuł i tagi")
