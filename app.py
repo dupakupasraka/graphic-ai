@@ -23,7 +23,7 @@ if generate:
                 img = Image.open(BytesIO(response.content)).convert("RGB")
                 img = img.resize((4500, 5400))
                 today = datetime.date.today().isoformat()
-                filename = f"{prompt.replace(' ', '_')}_{today}.png"
+                file_name = f"{prompt.replace(' ', '_')}_{today}.png"
                 img.save(file_name, dpi=(300, 300))
 
                 st.image(img, caption=f"{prompt}")
